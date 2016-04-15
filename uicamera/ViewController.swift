@@ -9,10 +9,37 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary){
+            
+            let imagePicker = UIImagePickerController()
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = .PhotoLibrary
+            
+            self.presentViewController(imagePicker,animated: true,completion: nil)
+            
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+       
+        /*
+        if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary){
+            
+            let imagePicker = UIImagePickerController()
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = .PhotoLibrary
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock {
+            
+                self.presentViewController(imagePicker,animated: true,completion: nil)
+        
+            }
+            
+        }*/
     }
 
     override func didReceiveMemoryWarning() {
